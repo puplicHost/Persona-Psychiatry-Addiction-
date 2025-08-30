@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>مؤسسة بيرسونا للطب النفسي وعلاج الإدمان | Persona Psychiatry</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+        body {
+            font-family: 'Cairo', Arial, sans-serif;
+            margin: 0;
+            background: #f4f8fc;
+            color: #183046;
+        }
+        /* HERO SECTION */
+        .hero {
+            position: relative;
+            min-height: 320px;
+            background: linear-gradient(110deg, #276198 75%, #74b6e6 100%);
+            overflow: hidden;
+            text-align: center;
+            padding-top: 58px;
+            padding-bottom: 46px;
+            box-shadow: 0 2px 24px rgba(32,80,119,0.10);
+        }
+        .hero-background-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            opacity: 0.48;
+            pointer-events: none;
+        }
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, #2d4769c9 35%, #3f84bdcc 88%, #c4e3f944 100%);
+            z-index: 1;
+            pointer-events: none;
+        }
+        .hero-bg-svg {
+            position: absolute;
+            z-index: 0;
+            left: 0; right: 0; bottom: 0;
+            width: 100%;
+            height: 110px;
+            pointer-events: none;
+            opacity: 0.34;
+            filter: blur(1.5px);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 0 2vw;
+        }
+        .hero-logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-bottom: 1.2rem;
+            background: #fff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 1px 11px rgba(53,122,184,0.12);
+            border: 2px solid #d3eafc;
+        }
+        .hero-logo-inner {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: linear-gradient(150deg,#4ba3e2 39%,#205077 75%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 900;
+            font-size: 1.8em;
+            box-shadow: 0 0 7px #22659f33;
+        }
+        .hero-title {
+            font-size: 2.40rem;
+            font-weight: bold;
+            color: #fff;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+            line-height: 1.19;
+        }
+        .hero-title span {
+            font-size: 0.55em;
+            font-weight: 400;
+            color: #e6f3fb;
+        }
+        .hero-desc {
+            margin-top: 1.25rem;
+            font-size: 1.19rem;
+            color: #eaf6fd;
+            line-height: 1.65;
+            padding: 0 0.6vw;
+            font-weight: 400;
+            text-shadow: 0 1px 10px rgba(55,130,220,0.11);
+        }
+        .hero-btns {
+            margin-top: 2.2rem;
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+        }
+        .hero-btn {
+            background: #f7d046;
+            color: #17415d;
+            border: none;
+            padding: 0.7em 2em;
+            font-size: 1.09em;
+            border-radius: 27px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 4px 16px #2050771f;
+            letter-spacing: 0.3px;
+            transition: transform 0.18s, background 0.18s;
+        }
+        .hero-btn:hover {
+            background: #ffe17a;
+            transform: translateY(-2px) scale(1.03);
+        }
+        .fadeup {opacity:0; transform: translateY(38px); transition: all 1.25s cubic-bezier(.22,1.02,.62,1.08);}
+        .fadeup.visible {opacity: 1; transform: none;}
+        /* HEADER LAYOUT RESET */
+        header {
+            background: none;
+            color: inherit;
+            padding: 0;
+            text-align: center;
+            box-shadow: none;
+            position:static;
+        }
+        .lang-switch {
+            position: absolute;
+            left: 40px;
+            top: 32px;
+            z-index: 3;
+        }
+        .lang-btn {
+            background: #f7d046;
+            color: #1d2936;
+            border: none;
+            padding: 0.4em 1.1em;
+            font-size: 1.06em;
+            border-radius: 19px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 1px 6px rgba(29,41,54,0.13);
+            transition: background 0.2s;
+        }
+        .lang-btn:hover {
+            background: #fae386;
+        }
+        nav {
+            margin-top: 0.82rem;
+            position: relative;
+            z-index: 4;
+        }
+        nav a {
+            color: #205077;
+            margin: 0 0.8rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: color 0.27s;
+            background: #eef3fb;
+            padding: 0.2em 1em;
+            border-radius: 7px;
+            display: inline-block;
+        }
+        nav a:hover {
+            color: #fff;
+            background: #357ab8;
+        }
+        .main-content {
+            padding: 2.5rem 7vw 1rem 7vw;
+            background: #fff;
+        }
+        /* Cards grid for services */
+        .services-grid, .services-grid-en {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
+            gap: 30px;
+        }
+        .service-card {
+            background: linear-gradient(120deg,#f9fbfd 75%,#e2eefb 100%);
+            border-radius: 18px;
+            box-shadow: 0 4px 28px 0 rgba(53,122,184,0.11), 0 2px 5px #2050770e;
+            padding: 1.2rem 1.1rem 1.35rem 1.1rem;
+            min-height: 210px;
+            border: none;
+            margin-bottom: 0px;
+            transition: transform 0.23s, box-shadow 0.23s;
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card:hover {
+            box-shadow: 0 10px 40px 0 rgba(42,122,184,0.18), 0 4px 22px #357ab86c;
+            transform: translateY(-2px) scale(1.017);
+            background: linear-gradient(110deg,#f0f7fc 60%,#d6eaff 100%);
+        }
+        .lists-title {
+            font-weight:bold;
+            margin-top:0.8em;margin-bottom:0.45em;color:#215d85;font-size:1.07em;letter-spacing:0.2px;
+        }
+        .service-card ul {
+            margin-bottom:4px;
+            padding-inline-start:20px;
+            font-size:1.02em;
+        }
+        .about, .about-en {
+            margin-bottom: 2.3rem;
+            border-radius: 14px;
+            background: #eaf3fa;
+            box-shadow: 0 2px 8px rgba(32,80,119,0.10);
+            padding: 2.2rem 1.5rem 1.3rem 1.5rem;
+        }
+        h2 {
+            border-right: 4px solid #357ab8;
+            padding-right: 0.7rem;
+            margin-top: 0; margin-bottom:12px;
+            font-size: 1.4rem;
+        }
+        .about-en h2, .services-en h2, .courses-en h2, .contact-en h3 {
+            border-left: 4px solid #357ab8;
+            border-right:none;
+            padding-left: 0.7rem;
+            padding-right: 0;
+            direction: ltr;
+            text-align: left;
+        }
+        .services, .services-en {
+            border-radius: 16px;
+            background: #f3f8fd;
+            box-shadow: 0 2px 10px rgba(32,80,119,0.06);
+            padding: 2.5rem 1.5rem 2rem 1.5rem;
+            margin-bottom: 2.2rem;
+        }
+        .courses, .courses-en {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.45rem;
+        }
+        .course-box {
+            background: #ecf4fa;
+            border-radius: 11px;
+            padding: 1.1rem 1.3rem;
+            min-width: 210px;
+            flex: 1;
+            box-shadow: 0 1px 5px rgba(48,110,180,0.09);
+            border:1px solid #d0e2fc;
+        }
+        .contact-section, .contact-en-section {
+            background: #205077;
+            color: #fff;
+            border-radius: 18px;
+            padding: 2.5rem 1.5rem 2rem 1.5rem;
+            margin: 2rem 0 0 0;
+            display:flex;
+            flex-direction:row;
+            gap:2rem;
+            flex-wrap:wrap;
+        }
+        .contact-section h3, .contact-en-section h3 {
+            margin-top: 0;
+            color: #ffe98c;
+        }
+        .contact-list {
+            margin: 1.1rem 0 0 0;
+            line-height: 2.12;
+            font-size: 1.1em;
+        }
+        .footer {
+            padding: 1.25rem 0 0.9rem 0;
+            background: #357ab8;
+            color: #fff;
+            text-align: center;
+            font-size: 1.01rem;
+            letter-spacing:1.1px;
+            margin-top: 2.8rem;
+            border-radius: 0 0 0 0;
+            box-shadow: 0 -2px 10px rgba(32,80,119,0.05);
+        }
+        @media (max-width: 950px) { .services-grid, .services-grid-en { grid-template-columns:1fr; } }
+        @media (max-width: 680px) {
+            .main-content, .about, .about-en, .services, .services-en, .contact-section, .contact-en-section {
+                padding: 1.2rem 4vw 1.1rem 4vw;
+            }
+            .about, .about-en, .services, .services-en {
+                margin-bottom:1.25rem;
+            }
+            .contact-section, .contact-en-section {flex-direction:column;gap:0.5rem;}
+            .hero-logo {width:38px;height:38px;}
+            .hero-logo-inner {width:25px;height:25px;font-size:1em;}
+            .hero-title {font-size:1.38rem;}
+            .lang-switch {left: 13px; top: 15px;}
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <img src="thomas-marquize-438TEjID-aM-unsplash.jpg" class="hero-background-img" alt="hero background" loading="lazy">
+        <div class="hero-overlay"></div>
+        <svg class="hero-bg-svg" viewBox="0 0 1440 250" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 155L60 160.2C120 165.3 240 175.7 360 174.8C480 174 600 162 720 145.2C840 128.3 960 106.7 1080 112.5C1200 118.3 1320 151.7 1380 168.3L1440 185V251H1380C1320 251 1200 251 1080 251C960 251 840 251 720 251C600 251 480 251 360 251C240 251 120 251 60 251H0V155Z" fill="url(#waves)"/><defs><linearGradient id="waves" x1="0" y1="0" x2="1440" y2="200" gradientUnits="userSpaceOnUse"><stop stop-color="#8dd4fa"/><stop offset="1" stop-color="#fff"/></linearGradient></defs></svg>
+        <div class="lang-switch">
+            <button class="lang-btn" id="switch-lang" onclick="switchLang()">English</button>
+        </div>
+        <div class="hero-content">
+            <div class="hero-logo fadeup" id="logo-fade">
+              <div class="hero-logo-inner" aria-label="persona">P</div>
+            </div>
+            <div class="hero-title fadeup" id="hero-title-ar">
+                مؤسسة بيرسونا للطب النفسي وعلاج الإدمان<br><span>Persona Psychiatry & Addiction</span>
+            </div>
+            <div class="hero-title fadeup" id="hero-title-en" style="display:none;direction:ltr;">
+                Persona Psychiatry & Addiction<br><span>مؤسسة بيرسونا للطب النفسي وعلاج الإدمان</span>
+            </div>
+            <div class="hero-desc fadeup" id="hero-desc-ar">
+                نسعى لخلق بيئة آمنة وداعمة للعلاج النفسي، عبر فريق احترافي يضع راحتك النفسية أولاً.<br>
+                نقدم خدمات نفسية متكاملة بأسعار مناسبة ورسالة وعي للجميع.
+            </div>
+            <div class="hero-desc fadeup" id="hero-desc-en" style="display:none">
+                We aim to create a safe, supportive environment for psychotherapy. Our professional team puts your mental well-being first.<br>
+                Comprehensive mental health services and valuable awareness for all.
+            </div>
+            <div class="hero-btns fadeup">
+                <button class="hero-btn" onclick="navigate('services')" id="hero-ar-btn">خدماتنا</button>
+                <button class="hero-btn" onclick="navigate('contact')" id="hero-ar-btn-contact">تواصل</button>
+                <button class="hero-btn" style="display:none;" onclick="navigate('services-en')" id="hero-en-btn">Our Services</button>
+                <button class="hero-btn" style="display:none;" onclick="navigate('contact-en')" id="hero-en-btn-contact">Contact</button>
+            </div>
+        </div>
+    </div>
+    <header>
+        <nav id="nav-ar">
+            <a href="#about" onclick="navigate('about')">عن المؤسسة</a>
+            <a href="#services" onclick="navigate('services')">الخدمات</a>
+            <a href="#courses" onclick="navigate('courses')">الدورات</a>
+            <a href="#contact" onclick="navigate('contact')">تواصل</a>
+        </nav>
+        <nav id="nav-en" style="display:none;">
+            <a href="#about-en" onclick="navigate('about-en')">About</a>
+            <a href="#services-en" onclick="navigate('services-en')">Services</a>
+            <a href="#courses-en" onclick="navigate('courses-en')">Courses</a>
+            <a href="#contact-en" onclick="navigate('contact-en')">Contact</a>
+        </nav>
+    </header>
+    <div class="main-content">
+        <!-- ARABIC SECTION -->
+        <div id="all-ar">
+            <section class="about" id="about">
+                <h2>عن بيرسونا</h2>
+                <p>نشأت مؤسسة بيرسونا للطب النفسي وعلاج الإدمان كنتيجة منطقية لتغيرات المجتمع وزيادة وعي الأفراد بالمشكلات النفسية. أسسها <b>د. حاتم صبري</b> بخبرة تمتد لسنوات في مستشفيات الصحة النفسية والمنظمات الإنسانية، ليوفر خدمة علاج نفسي متكاملة بأفضل كفاءة وأقل تكلفة.</p>
+                <ul>
+                <li>خدمة علاج نفسي بأسعار مناسبة ودون عوائق مالية، من خلال نخبة من المتخصصين.</li>
+                <li>انتشار فروعنا في القاهرة، الجيزة، الإسكندرية، وكافة المحافظات.</li>
+                <li>المساهمة في نشر الوعي النفسي عبر قنوات إلكترونية وكورسات تعليمية.</li>
+                <li>برامج تدريبية (بيرسونا أكاديمي) لتنمية المهارات وتحقيق الرفاه النفسي.</li>
+                </ul>
+            </section>
+            <section class="services" id="services">
+                <h2>جميع الخدمات والعلاجات</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="lists-title">علاج اضطرابات الراشدين النفسية</div>
+                        <ul>
+                            <li>علاج الاكتئاب بجميع أنواعه</li>
+                            <li>علاج الفوبيا</li>
+                            <li>علاج اضطراب الهلع</li>
+                            <li>علاج اضطراب القلق العام</li>
+                            <li>علاج اضطراب الرهاب الاجتماعي</li>
+                            <li>علاج كرب مابعد الصدمه</li>
+                            <li>علاج الضغط العصبي الحاد</li>
+                            <li>علاج الوسواس القهري</li>
+                            <li>علاج اضطراب تشوه الجسد</li>
+                            <li>علاج الاضطرابات النفس جسمية</li>
+                            <li>علاج اضطراب قلق المرض</li>
+                            <li>علاج هوس نتف الشعر وهوس إيذاء الجلد</li>
+                            <li>علاج اضطرابات الأكل (الأنوريكسيا والبوليميا)</li>
+                            <li>علاج عسر مزاج ماقبل الدورة الشهرية</li>
+                            <li>علاج اضطراب ثنائي القطب</li>
+                            <li>الهوس</li>
+                            <li>علاج الفصام والنوبات الذهانية الحادة</li>
+                            <li>علاج حالات الخرف</li>
+                            <li>علاج الزهايمر</li>
+                        </ul>
+                    </div>
+                    <div class="service-card">
+                        <div class="lists-title">علاج اضطرابات الأطفال النفسية</div>
+                        <ul>
+                            <li>علاج التأخر العقلي</li>
+                            <li>علاج تأخر النطق والكلام</li>
+                            <li>علاج التوحد</li>
+                            <li>علاج نقص الانتباه وفرط الحركة</li>
+                            <li>علاج صعوبات التعلم</li>
+                            <li>علاج اضطرابات الحركة واللوازم</li>
+                            <li>علاج قلق الأطفال وقلق الانفصال</li>
+                            <li>علاج اضطرابات الاخراج والتبول الليلي</li>
+                            <li>علاج العند عن الأطفال</li>
+                            <li>علاج الاضطرابات السلوكيه (الكذب - السرقة)</li>
+                        </ul>
+                    </div>
+                    <div class="service-card">
+                        <div class="lists-title">علاج اضطرابات الشخصية والسلوك والإدمان</div>
+                        <ul>
+                            <li>علاج اضطراب الشخصية الحدية</li>
+                            <li>علاج اضطرابات الشخصية</li>
+                            <li>علاج إدمان جميع المواد المخدرة (الحشيش -الماريجوانا- البانجو-الأفيون -المورفين-الهيروين -الكبتاجون والكريستال ميث -الفودو-الاستروكس -ليريكا و ليرولين -الترامادول والتامول -الخمور (الكحوليات))</li>
+                            <li>علاج الانحرافات الجنسية</li>
+                            <li>علاج الامراض الجنسيه لأسباب نفسية</li>
+                            <li>علاج اضطراب الهوية الجنسية</li>
+                            <li>علاج اضطرابات النوم</li>
+                        </ul>
+                    </div>
+                    <div class="service-card">
+                        <div class="lists-title">الاختبارات النفسية</div>
+                        <ul>
+                            <li>اختبار الذكاء (ستانفورد بينيه)</li>
+                            <li>اختبارات التوحد وفرط الحركة وصعوبات التعلم</li>
+                            <li>الاختبارات السلوكية</li>
+                            <li>اختبارات تقييم درجات القلق والاكتئاب والوسواس القهري والفصام</li>
+                            <li>اختبارات الشخصية</li>
+                            <li>اختبارات المخدرات</li>
+                        </ul>
+                    </div>
+                    <div class="service-card">
+                        <div class="lists-title">كورسات التنمية النفسية الذاتية</div>
+                        <ul>
+                            <li>الذكاء العاطفي وإدارة المشاعر</li>
+                            <li>لغة الجسد</li>
+                            <li>تنظيم العلاقات</li>
+                            <li>الشخصيات واضطراباتها والتعامل معها</li>
+                        </ul>
+                    </div>
+                    <div class="service-card">
+                        <div class="lists-title">كورسات للمتخصصين</div>
+                        <ul>
+                            <li>المقابله النفسية الكلينيكية</li>
+                            <li>العلاقة العلاجية</li>
+                            <li>الاضطرابات النفسية والتعامل معها</li>
+                            <li>علم النفس الايجابي</li>
+                            <li>العلاج المعرفي السلوكي</li>
+                            <li>العلاج بالقبول والالتزام</li>
+                            <li>العلاج الجدلي السلوكي</li>
+                            <li>العلاج النفسي التحليلي</li>
+                            <li>العلاج الزواجي</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section class="about" id="courses">
+                <h2>القيم والرؤية والرسالة</h2>
+                <ul>
+                    <li><b>الجودة قبل كل شيء:</b> الالتزام بتقديم أفضل رعاية نفسية وعلاجية مهما كانت التكلفة.</li>
+                    <li><b>تيسير العلاج للجميع:</b> إزالة العوائق المالية من أمام من يحتاج للعلاج الطويل الأمد.</li>
+                    <li><b>نشر الوعي والتوعية:</b> تقديم محتوى علمي مجاني عبر الإنترنت والورش والقنوات الرقمية.</li>
+                    <li><b>التطوير المستمر:</b> توفير برامج تدريبية فعالة لرفع كفاءة الفريق والمتدربين داخلياً وخارجياً.</li>
+                </ul>
+            </section>
+                    </div>
+        <!-- ENGLISH SECTION -->
+        <div id="all-en" style="display:none;">
+            <section class="about-en" id="about-en">
+                <h2>About Persona</h2>
+                <p>The Persona Foundation for Psychiatry and Addiction was established as a logical outcome of the cultural transformation and growing mental health awareness in Arab society. Founded by Dr. Hatem Sabri after years of experience, Persona provides top-quality, affordable psychotherapy and addiction services.</p>
+                <ul>
+                    <li>Affordable & effective psychotherapy via an expert team.</li>
+                    <li>Branches in Cairo, Giza, Alexandria and all governorates.</li>
+                    <li>Spreading mental health awareness via online content & training courses.</li>
+                    <li>Professional development programs (Persona Academy) for inner peace and well-being.</li>
+                </ul>
+            </section>
+            <section class="services-en" id="services-en">
+                <h2>All Services & Treatments</h2>
+                <div class="services-grid-en">
+                    <div class="service-card">
+                        <div class="lists-title">Adult Psychiatric Disorders</div>
+                        <ul>
+                            <li>Treatment of all kinds of depression</li>
+                            <li>Treatment of all phobia types</li>
+                            <li>Treatment of panic disorder</li>
+                            <li>Generalized anxiety disorder treatment</li>
+                            <li>Social anxiety disorder treatment</li>
+                            <li>PTSD treatment</li>
+                            <li>Acute stress disorder treatment</li>
+                            <li>OCD treatment</li>
+                            <li>Body dysmorphic disorder treatment</li>
+                            <li>Somatoform disorders treatment</li>
+                            <li>Illness anxiety disorder</li>
+                            <li>Trichotillomania & skin picking disorder</li>
+                            <li>Eating disorders (anorexia, bulimia)</li>
+                            <li>PMS dysphoric disorder</li>
+                            <li>Bipolar disorder</li>
+                            <li>Mania</li>
+                            <li>Schizophrenia & acute psychosis</li>
+                            <li>Dementia treatment</li>
+                            <li>Alzheimer’s treatment</li>
+                        </ul>
+                    </div>
+                    <div class="service-card">
+                        <div class="lists-title">Children’s Psychiatric Disorders</div>
+                        <ul>
+                            <li>Intellectual disorder</li>
+                            <li>Speech disorders treatment</li>
+                            <li>Autism spectrum treatment</li>
+                            <li>ADHD treatment</li>
+                            <li>Learning disabilities treatment</li>
+                            <li>Movement/tic disorders</li>
+                            <li>Children's/separation anxiety</li>
+                            <li>Discharge/enuresis treatment</li>
+                            <li>Behavioral problems (stubbornness, lying, theft)</li>
+                        </ul>
+                    </div>
+                    <div class="service-card">
+                        <div class="lists-title">Personality, Behavioral & Addiction Disorders</div>
+                        <ul>
+                            <li>Borderline personality disorder</li>
+                            <li>Other personality disorders</li>
+                            <li>Addiction to all substances (Cannabis, Marijuana, Banjo, Opium, Morphine, Heroin, Captagon, Crystal Meth, Voodoo, Asterox, Pregabalin, Tramadol, Tamol, Alcohol, etc.)</li>
+                            <li>Sexual deviations treatment</li>
+                            <li>Sexual disorders (psychological origin)</li>
+                            <li>Gender identity disorder</li>
+                            <li>Sleep disorders treatment</li>
+                        </ul>
+                    </div>
+                    <div class="service-card">
+                        <div class="lists-title">Psychological Assessment</div>
+                        <ul>
+                            <li>IQ Test (Stanford-Binet)</li>
+                            <li>Autism, ADHD & learning disability testing</li>
+                            <li>Behavioral assessment</li>
+                            <li>Anxiety, depression, OCD, schizophrenia assessment</li>
+                            <li>Personality tests</li>
+                            <li>Drug screening</li>
+                        </ul>
+                    </div>
+                    <div class="service-card">
+                        <div class="lists-title">Self-Development Courses</div>
+                        <ul>
+                            <li>Emotional intelligence & emotion management</li>
+                            <li>Body language</li>
+                            <li>Relationship management</li>
+                            <li>Personalities & how to deal with them</li>
+                        </ul>
+                    </div>
+                    <div class="service-card">
+                        <div class="lists-title">Courses for Professionals</div>
+                        <ul>
+                            <li>Clinical psychological interview</li>
+                            <li>Therapeutic relationship</li>
+                            <li>Psychiatric disorders & their management</li>
+                            <li>Positive psychology</li>
+                            <li>Cognitive Behavioral Therapy (CBT)</li>
+                            <li>Acceptance and Commitment Therapy (ACT)</li>
+                            <li>Dialectical Behavioral Therapy (DBT)</li>
+                            <li>Analytical psychotherapy</li>
+                            <li>Marital therapy</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section class="about-en" id="courses-en">
+                <h2>Values, Vision & Mission</h2>
+                <ul>
+                    <li><b>Quality First:</b> Provide the best psychological care regardless of cost.</li>
+                    <li><b>Access for All:</b> Remove financial obstacles for those in need of long-term care.</li>
+                    <li><b>Awareness & Education:</b> Offer free scientific content and workshops online.</li>
+                    <li><b>Continuous Development:</b> Effective training to enhance staff and trainee skills inside/outside Egypt.</li>
+                </ul>
+            </section>
+                    </div>
+    </div>
+    <div class="footer">© 2025مؤسسة بيرسونا للطب النفسي وعلاج الإدمان | Persona Psychiatry</div>
+    <script>
+    // Animate hero fade-in
+    window.addEventListener('DOMContentLoaded', function() {
+        const fadeEls = document.querySelectorAll('.fadeup');
+        fadeEls.forEach((el, i) => {
+            setTimeout(()=>{
+                el.classList.add('visible');
+            }, 170 + 310*i);
+        });
+    });
+    function switchLang() {
+        var ar = document.getElementById('all-ar');
+        var en = document.getElementById('all-en');
+        var arTitle = document.getElementById('hero-title-ar');
+        var enTitle = document.getElementById('hero-title-en');
+        var arDesc = document.getElementById('hero-desc-ar');
+        var enDesc = document.getElementById('hero-desc-en');
+        var arNav = document.getElementById('nav-ar');
+        var enNav = document.getElementById('nav-en');
+        var btn = document.getElementById('switch-lang');
+        var heroBtns = document.getElementById('hero-ar-btn');
+        var heroBtnContact = document.getElementById('hero-ar-btn-contact');
+        var heroEnBtns = document.getElementById('hero-en-btn');
+        var heroEnBtnContact = document.getElementById('hero-en-btn-contact');
+        var body = document.body;
+        if(ar.style.display!=="none") {
+            ar.style.display="none";
+            en.style.display="block";
+            arTitle.style.display="none";
+            enTitle.style.display="block";
+            arDesc.style.display="none";
+            enDesc.style.display="block";
+            arNav.style.display="none";
+            enNav.style.display="block";
+            heroBtns.style.display = "none";
+            heroBtnContact.style.display = "none";
+            heroEnBtns.style.display = "inline-block";
+            heroEnBtnContact.style.display = "inline-block";
+            btn.textContent = "العربية";
+            document.documentElement.lang = 'en';
+            document.documentElement.dir = 'ltr';
+            body.style.direction = 'ltr';
+        } else {
+            ar.style.display="block";
+            en.style.display="none";
+            arTitle.style.display="block";
+            enTitle.style.display="none";
+            arDesc.style.display="block";
+            enDesc.style.display="none";
+            arNav.style.display="block";
+            enNav.style.display="none";
+            heroBtns.style.display = "inline-block";
+            heroBtnContact.style.display = "inline-block";
+            heroEnBtns.style.display = "none";
+            heroEnBtnContact.style.display = "none";
+            btn.textContent = "English";
+            document.documentElement.lang = 'ar';
+            document.documentElement.dir = 'rtl';
+            body.style.direction = 'rtl';
+        }
+    }
+    function navigate(id) {
+        var ele = document.getElementById(id);
+        if(ele) ele.scrollIntoView({behavior: "smooth", block: "start"});
+    }
+    </script>
+</body>
+</html>
